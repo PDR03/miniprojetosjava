@@ -33,11 +33,22 @@ public class Main {
 		
 		System.out.println("Start date at the company");
 		
-			Date date = sdf.parse(scr.next("dd/MM/yyyy"));
+			Date date = sdf.parse(scr.next());
 		
-		System.out.println("Do you work per hour or per month?(1: hour| 2: month");
-		 response = scr.nextInt();
-		
+			while (true) {
+	            System.out.println("Do you work per hour or per month? (1: hour | 2: month)");
+	            try {
+	                response = scr.nextInt();
+	                if (response == 1 || response == 2) {
+	                    break;
+	                } else {
+	                    System.out.println("Please enter either 1 or 2.");
+	                }
+	            } catch (java.util.InputMismatchException e) {
+	                System.out.println("Invalid input. Please enter a number (1 or 2).");
+	                scr.next();
+	            }
+			}
 		if(response == 1) {
 			
 			System.out.println("How much do you earn per hour");
@@ -46,7 +57,7 @@ public class Main {
 			System.out.println("how many hours do you work per month");
 			int workedhours = scr.nextInt();
 			
-			list.add(new HourlyeEmployee(name, age, date, valuePerHour, workedhours));
+			list.add(new HourlyeEmployee(name, age, date,0.0 ,valuePerHour, workedhours));
 			
 		}else if(response == 2) {
 			
@@ -59,7 +70,7 @@ public class Main {
 			System.out.println("How much do your earn in transportation voucher");
 			double transportationVoucher = scr.nextDouble();	
 			
-			list.add(new MonthlyEmployee(name, age, date,foodVoucher,transportationVoucher));
+			list.add(new MonthlyEmployee(name, age, date, salary, foodVoucher, transportationVoucher));
 		
 		}
 		System.out.println("Do you want add more employees?(s:1|n:0");
@@ -70,7 +81,7 @@ public class Main {
 			
 			System.out.println("Name: " + emp.getName());
 			System.out.println("Age: " +  emp.getAge());
-			System.out.println("Entry date: " + emp.getHiringDate());
+			System.out.println("Entry date: " + sdf.format(emp.getHiringDate()));
 			System.out.println("Total salary: " + emp.getSalary());
 			
 		}

@@ -9,9 +9,9 @@ public class HourlyeEmployee extends Employee {
 	
 	//Constructor
 	
-	public HourlyeEmployee(String name, Integer age, Date hiringDate, Double valuePerHor,
+	public HourlyeEmployee(String name, Integer age, Date hiringDate, Double salary, Double valuePerHor,
 			Integer workedHours) {
-		super(name, age, hiringDate);
+		super(name, age, hiringDate, salary);
 		this.valuePerHour = valuePerHor;
 		this.workedHours = workedHours;
 		this.setSalary(valuePerHour * workedHours);

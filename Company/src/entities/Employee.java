@@ -9,11 +9,11 @@ public class Employee {
 	private Date hiringDate;
 	private Double salary = 0.0;
 	//Constructor
-	public Employee(String name, Integer age, Date hiringDate) {
+	public Employee(String name, Integer age, Date hiringDate, Double salary) {
 		this.name = name;
 		this.age = age;
 		this.hiringDate = hiringDate;
-		
+		this.salary = salary;
 	}
 
 	//Getters and Setters

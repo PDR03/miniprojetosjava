@@ -7,11 +7,11 @@ public class MonthlyEmployee extends Employee {
 	private Double transportatioVouchers;
 	
 	//Constructor
-	public MonthlyEmployee(String name, Integer age, Date hiringDate, Double foodVoucher,Double transportatioVouchers) {
-		super(name, age, hiringDate);
+	public MonthlyEmployee(String name, Integer age, Date hiringDate, Double salary, Double foodVoucher,Double transportatioVouchers) {
+		super(name, age, hiringDate,salary);
 		this.foodVoucher = foodVoucher;
 		this.transportatioVouchers = transportatioVouchers;
-		super.setSalary(foodVoucher + transportatioVouchers + super.getSalary());
+		super.setSalary(super.getSalary() + foodVoucher + transportatioVouchers);
 	}
 
 	
