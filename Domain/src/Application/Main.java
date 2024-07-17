@@ -22,7 +22,7 @@ public static void main(String[]args) {
 		LocalDateTime start = LocalDateTime.parse(scr.nextLine(), dtm);
 		
 		
-		System.out.println("Retorno:");
+		System.out.print("Retorno:");
 		LocalDateTime finish = LocalDateTime.parse(scr.nextLine(), dtm);
 		
 		System.out.println("Preco por hora");
@@ -32,14 +32,14 @@ public static void main(String[]args) {
 		
 		CarRental carRental = new CarRental(start, finish, new Vehicle(model));
 		
-		RentalService rentalServicee = new RentalService(pricePerDay, pricePerHour, new BrasilTaxService());
+		RentalService rentalServicee = new RentalService(pricePerHour, pricePerDay, new BrasilTaxService());
 		
 		rentalServicee.processInvoice(carRental);
 		
 		System.out.println("Fatura");
-		System.out.print("Basic payment:" + carRental.getInvoice().getBasicPayment());
-		System.out.print("Tax:" + carRental.getInvoice().getTax());
-		System.out.print("Impostos" + carRental.getInvoice().getTotalPayment());
+		System.out.print("Basic payment: " + carRental.getInvoice().getBasicPayment()  + "\n");
+		System.out.print("Tax: " + carRental.getInvoice().getTax() + "\n");
+		System.out.print("Total payment: " + carRental.getInvoice().getTotalPayment() + " \n");
 			
 	}
 }
