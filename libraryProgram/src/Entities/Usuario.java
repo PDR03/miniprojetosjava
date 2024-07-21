@@ -3,10 +3,10 @@ package Entities;
 public class Usuario {
 	private String name;
 	private Integer age;
-	private String ID;
+	private Integer ID;
 	
 	//Constructor
-	public Usuario(String name, Integer age, String iD) {
+	public Usuario(String name, Integer age, Integer iD) {
 		this.name = name;
 		this.age = age;
 		ID = iD;
@@ -29,11 +29,11 @@ public class Usuario {
 		this.age = age;
 	}
 
-	public String getID() {
+	public Integer getID() {
 		return ID;
 	}
 
-	public void setID(String iD) {
+	public void setID(Integer iD) {
 		ID = iD;
 	}
 }
