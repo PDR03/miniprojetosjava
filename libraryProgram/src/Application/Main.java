@@ -1,6 +1,7 @@
 package Application;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -18,7 +19,7 @@ public class Main {
 		int resposta = 0;
 		
 		
-		System.out.println("Qual opção você deseja: 1 Registro de livos | 2 Cadastro de Usuarios| 0 Encerrar");
+		System.out.println("Qual opção você deseja: 1 Registro de livros | 2 Cadastro de Usuarios| 0 Encerrar");
 		resposta = scr.nextInt();
 		
 		do{
@@ -67,6 +68,7 @@ public class Main {
 					}
 				}
 					if(resposta == 2) {
+						Collections.sort(listOfBooks);
 						for(Livro lvr : listOfBooks) {
 							System.out.print("Titulo:" + lvr.getTitle() + "\n");
 							System.out.print("Autor" + lvr.getAuthor() + "\n");
@@ -75,6 +77,7 @@ public class Main {
 					}
 				
 				if(resposta == 4) {
+					Collections.sort(listOfUsers);
 					for(Usuario usr : listOfUsers) {
 						System.out.print("Nome: " + usr.getName() + "\n");
 						System.out.print("Idade " + usr.getAge()+ "\n");
@@ -82,7 +85,7 @@ public class Main {
 					}
 				}
 			
-			System.out.println("Qual opção você deseja: 1 Registro de livos | 2 Cadastro de Usuarios| 3 Ver livros| 4 Ver usuarios| 0 Encerrar");
+			System.out.println("Qual opção você deseja: 1 Registro de livros | 2 Cadastro de Usuarios| 3 Ver livros| 4 Ver usuarios| 0 Encerrar");
 			resposta = scr.nextInt();
 			
 			}catch(InputMismatchException e) {

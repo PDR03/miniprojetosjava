@@ -1,6 +1,6 @@
 package Entities;
 
-public class Usuario {
+public class Usuario implements Comparable<Usuario> {
 	private String name;
 	private Integer age;
 	private Integer ID;
@@ -35,5 +35,11 @@ public class Usuario {
 
 	public void setID(Integer iD) {
 		ID = iD;
+	}
+
+	@Override
+	public int compareTo(Usuario other) {
+		
+		return name.compareTo(other.getName());
 	}
 }

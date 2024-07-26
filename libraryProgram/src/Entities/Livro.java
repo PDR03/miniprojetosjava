@@ -1,6 +1,6 @@
 package Entities;
 
-public class Livro {
+public class Livro implements Comparable<Livro>{
 	private String Title;
 	private String Author;
 	private Integer numberPages;
@@ -46,6 +46,11 @@ public class Livro {
 
 	public void setGenerous(String generous) {
 		this.generous = generous;
+	}
+
+	@Override
+	public int compareTo(Livro other) {
+		return Title.compareTo(other.getTitle());
 	}
 	
 	
