@@ -12,7 +12,6 @@ public class Aluguel {
 	
 	//Constructors
 	public Aluguel(LocalDateTime retirada, LocalDateTime retorno, Livro livro, Tax tax) {
-		super();
 		this.retirada = retirada;
 		this.retorno = retorno;
 		this.livro = livro;

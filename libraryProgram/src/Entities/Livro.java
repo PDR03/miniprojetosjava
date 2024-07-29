@@ -4,15 +4,17 @@ public class Livro implements Comparable<Livro>{
 	private String Title;
 	private String Author;
 	private Integer numberPages;
-	private String generous;
+	private String gender;
+	private Boolean Status;
 	
 	//Constructors
-	public Livro(String title, String author, Integer numberPages, String generous) {
+	public Livro(String title, String author, Integer numberPages, String gender) {
 		super();
 		Title = title;
 		Author = author;
 		this.numberPages = numberPages;
-		this.generous = generous;
+		this.gender = gender;
+		this.Status = false;
 	}
 
 	//Getters and Setters
@@ -40,12 +42,12 @@ public class Livro implements Comparable<Livro>{
 		this.numberPages = numberPages;
 	}
 
-	public String getGenerous() {
-		return generous;
+	public String getGender() {
+		return gender;
 	}
 
-	public void setGenerous(String generous) {
-		this.generous = generous;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	@Override
