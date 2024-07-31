@@ -49,11 +49,20 @@ public class Livro implements Comparable<Livro>{
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	public Boolean getStatus() {
+		return Status;
+	}
 
+	public void setStatus(Boolean status) {
+		Status = status;
+	}
+	
 	@Override
 	public int compareTo(Livro other) {
 		return Title.compareTo(other.getTitle());
 	}
+
+
 	
 	
 }

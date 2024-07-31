@@ -1,5 +1,6 @@
 package Application;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.InputMismatchException;
@@ -8,6 +9,7 @@ import java.util.Scanner;
 
 import Entities.Livro;
 import Entities.Usuario;
+import Services.Aluguel;
 
 public class Main {
 
@@ -21,18 +23,46 @@ public class Main {
 			System.out.println("Selecione a opção desejada: 1 Usuario|2 Bibliotecario");
 			resposta = scr.nextInt();
 			if(resposta == 1) {
+
 				System.out.println("Digite seu ID de Usuario");
 				int ID = scr.nextInt();
-				
-				System.out.println("Dados do usuario");
-				for(Usuario usr : listOfUsers) {
-					System.out.print("Nome: " + usr.getName() + "\n");
-					System.out.print("Idade " + usr.getAge()+ "\n");
-					System.out.print("ID: " + usr.getID()+ "\n");
-				}
-				
+					System.out.println("1 Dados do usuario|2 Alugar um livro| 3 Ver livros alugados|0 Encerrar");
+					resposta = scr.nextInt();
+					if(resposta == 1) {
+						System.out.println("Dados do usuario");
+						for(Usuario usr : listOfUsers) {
+							if(ID == usr.getID()) {
+								System.out.print("Nome: " + usr.getName() + "\n");
+								System.out.print("Idade " + usr.getAge()+ "\n");
+								System.out.print("ID: " + usr.getID()+ "\n");
+								
+							}
+						}
+					}
+					
+					if(resposta == 2) {
+						System.out.println("Livros disponiveis");
+						int i = 0;
+						for(Livro lvr : listOfBooks) {
+							
+							if(lvr.getStatus() == false) {
+								System.out.println("Livro " + i);
+								System.out.print("Titulo:" + lvr.getTitle() + "\n");
+								System.out.print("Autor" + lvr.getAuthor() + "\n");
+								System.out.print("Genero" + lvr.getGender() + "\n");
+								i++;
+							}
+						}
+						for(Usuario usr : listOfUsers) {
+							if( ID == usr.getID()){
+								Usuario user = listOfUsers.get();
+							}
+						}
+						
+						Aluguel aluguel = new Aluguel(LocalDateTime.now(), listOfBooks.get(i), user);
+					}
 				System.out.println("Livros alugados");
-				
+			
 			}else if(resposta == 2) {
 				
 				
@@ -67,7 +97,7 @@ public class Main {
 						int age = scr.nextInt();
 						
 						System.out.println("Estamos registrando seu ID...");
-						int ID = (int) (Math.random() * 10000);
+						int ID = (int)(Math.random() * ((9999 - 1000) + 1)) + 1000;
 						
 						listOfUsers.add(new Usuario(name, age, ID));
 					}
