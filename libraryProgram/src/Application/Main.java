@@ -41,25 +41,30 @@ public class Main {
 					}
 					
 					if(resposta == 2) {
+						Usuario user = null;
 						System.out.println("Livros disponiveis");
 						int i = 0;
 						for(Livro lvr : listOfBooks) {
 							
 							if(lvr.getStatus() == false) {
-								System.out.println("Livro " + i);
+								System.out.println("Livro " + (i + 1));
 								System.out.print("Titulo:" + lvr.getTitle() + "\n");
 								System.out.print("Autor" + lvr.getAuthor() + "\n");
 								System.out.print("Genero" + lvr.getGender() + "\n");
 								i++;
-							}
+							}													
 						}
+						System.out.println("Qual livro deseja alugar?" );
+						i = scr.nextInt();
 						for(Usuario usr : listOfUsers) {
+							int posicao = 0;
 							if( ID == usr.getID()){
-								Usuario user = listOfUsers.get();
+								user = listOfUsers.get(posicao);
 							}
+							posicao++;
 						}
 						
-						Aluguel aluguel = new Aluguel(LocalDateTime.now(), listOfBooks.get(i), user);
+						Aluguel aluguel = new Aluguel(LocalDateTime.now(), listOfBooks.get(i - 1), user);
 					}
 				System.out.println("Livros alugados");
 			
